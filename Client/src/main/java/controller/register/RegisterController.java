@@ -33,6 +33,8 @@ public class RegisterController implements Controller {
     @FXML
     Label status;
 
+    private EventListener<UsermanagementEvent> eventEventListener;
+
     public void initialize() {
 
     }
@@ -40,8 +42,6 @@ public class RegisterController implements Controller {
     public void initializeStyleSheets() {
 
     }
-
-    private EventListener<UsermanagementEvent> eventEventListener;
 
     @FXML
     public void register() {
@@ -53,7 +53,7 @@ public class RegisterController implements Controller {
                         if(event.getJsonObject().get(JSONCore.CORE.SUCCESS.getId()).equals("true")){
                             status.setText("Register successful");
                         }else {
-                            status.setText("Register was not successful");
+                            status.setText((String) event.getJsonObject().get(JSONCore.CORE.ERROR_MESSAGE.getId()));
                         }
                     }
                 }

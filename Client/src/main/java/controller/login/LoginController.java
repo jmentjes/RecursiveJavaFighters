@@ -10,15 +10,20 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Controller;
 import model.Settings;
+import model.User;
 import model.com.Transceiver;
 import model.com.eventmanagement.events.UsermanagementEvent;
 import model.eventsystem.EventListener;
 import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Kojy on 26.06.2017.
  */
 public class LoginController implements Controller {
+    private static Logger logger = LoggerFactory.getLogger(LoginController.class);
+
     @FXML
     TextField usernameField;
     @FXML
@@ -26,6 +31,7 @@ public class LoginController implements Controller {
     @FXML
     Label status;
 
+    private EventListener<UsermanagementEvent> eventEventListener;
 
     public void initialize() {
 
@@ -45,7 +51,6 @@ public class LoginController implements Controller {
         switchTo(Vista.REGISTER);
     }
 
-    private EventListener<UsermanagementEvent> eventEventListener;
     @FXML
     public void goOnline(ActionEvent event) {
         Transceiver transceiver = Settings.getTransceiver();
@@ -54,8 +59,10 @@ public class LoginController implements Controller {
             eventEventListener = new EventListener<UsermanagementEvent>() {
                 @Override
                 public void handle(UsermanagementEvent event) {
+                    logger.info(event.getJsonObject().toJSONString());
                     if (event.getJsonObject().get(JSONCore.CORE.SUCCESS.getId()).equals("true") &&
                             event.getJsonObject().get(JSONCore.CORE.SUBJECT.getId()).equals("login")) {
+                        Settings.setCurrentUser(User.createUser(event.getJsonObject()));
                         switchTo(Vista.ONLINE);
                     }else {
                         status.setText((String) event.getJsonObject().get(JSONCore.CORE.ERROR_MESSAGE.getId()));
