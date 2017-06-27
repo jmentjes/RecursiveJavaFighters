@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="351.0" prefWidth="274.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.register.RegisterController">
+    <children>
+        <GridPane prefHeight="354.0" prefWidth="346.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="80.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="10.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+                <RowConstraints percentHeight="12.5" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label text="Register" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameField" alignment="CENTER" promptText="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <TextField fx:id="emailField" alignment="CENTER" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <PasswordField fx:id="passwordField1" alignment="CENTER" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <PasswordField fx:id="passwordField2" alignment="CENTER" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Button mnemonicParsing="false" onAction="#register" prefWidth="100.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                <Button mnemonicParsing="false" onAction="#backToLogin" prefWidth="100.0" text="Back" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+                <Label fx:id="status" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            </children>
+        </GridPane>
+    </children>
+</StackPane>
