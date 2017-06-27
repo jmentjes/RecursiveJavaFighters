@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?scenebuilder-stylesheet vista.css?>
-
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.StackPane?>
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:id="vista2" fx:controller="controller.online.OnlineController">
-    <children>
-        <Button mnemonicParsing="false" onAction="#logout" text="Previous Pane"/>
-    </children>
+
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.online.OnlineController">
+   <children>
+      <SplitPane dividerPositions="0.16387959866220736">
+         <items>
+            <StackPane fx:id="userList">
+               <children>
+                  <Label text="UserList" />
+               </children>
+            </StackPane>
+            <StackPane>
+               <children>
+                  <SplitPane dividerPositions="0.7348484848484849" orientation="VERTICAL">
+                     <items>
+                        <StackPane>
+                           <children>
+                              <SplitPane dividerPositions="0.6450304259634888">
+                                 <items>
+                                    <StackPane fx:id="lobbyList" prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="LobbyList" />
+                                       </children>
+                                    </StackPane>
+                                    <StackPane fx:id="lobbyPreview" prefHeight="150.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="LobbyPreview" />
+                                       </children>
+                                    </StackPane>
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </StackPane>
+                        <StackPane fx:id="chat">
+                           <children>
+                              <Label text="Chat" />
+                           </children>
+                        </StackPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </StackPane>
+         </items>
+      </SplitPane>
+   </children>
 </StackPane>

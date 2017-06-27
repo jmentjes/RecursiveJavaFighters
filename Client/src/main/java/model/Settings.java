@@ -1,6 +1,7 @@
 package model;
 
 import model.com.Transceiver;
+import model.entities.User;
 
 /**
  * Created by Kojy on 26.06.2017.

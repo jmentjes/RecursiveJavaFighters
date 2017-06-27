@@ -55,6 +55,7 @@ public class RegisterController implements Controller {
                         }else {
                             status.setText((String) event.getJsonObject().get(JSONCore.CORE.ERROR_MESSAGE.getId()));
                         }
+                        Settings.getTransceiver().removeReceiveListener(eventEventListener);
                     }
                 }
             };

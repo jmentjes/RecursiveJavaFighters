@@ -10,7 +10,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Controller;
 import model.Settings;
-import model.User;
+import model.entities.User;
 import model.com.Transceiver;
 import model.com.eventmanagement.events.UsermanagementEvent;
 import model.eventsystem.EventListener;
@@ -67,6 +67,7 @@ public class LoginController implements Controller {
                     }else {
                         status.setText((String) event.getJsonObject().get(JSONCore.CORE.ERROR_MESSAGE.getId()));
                     }
+                    transceiver.removeReceiveListener(eventEventListener);
                 }
             };
             transceiver.addReceiveListener(eventEventListener);

@@ -1,4 +1,4 @@
-package model;
+package model.entities;
 
 import de.github.GSGJ.API.json.JSONCore;
 import org.json.simple.JSONObject;
@@ -61,7 +61,7 @@ public class User {
         String username = (String) jsonObject.get(JSONCore.CORE.USERNAME.getId());
         String id = (String) jsonObject.get(JSONCore.CORE.USER_ID.getId());
         String key = (String) jsonObject.get(JSONCore.CORE.PRIVATE_KEY.getId());
-        String email = (String) jsonObject.get(JSONCore.CORE_USERMANAGEMENT.EMAIL);
+        String email = (String) jsonObject.get(JSONCore.CORE_USERMANAGEMENT.EMAIL.getId());
         return new User(username,id,key,email);
 
     }
